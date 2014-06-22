@@ -16,7 +16,15 @@ app.get('/scrape', function(req, res){
        title: "",
        url: ""
      };
+
+     var bookmarks = $( '.bookmark_title' ).map( function() {
+       return this.attribs.href ;
+     }).get();
+
+     console.log( bookmarks );
    }
+
+   response.end();
  });
 
 
