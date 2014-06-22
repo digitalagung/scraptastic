@@ -1,0 +1,12 @@
+{
+  "name"         : "scraptastic",
+  "version"      : "0.0.1",
+  "description"  : "Node web scraper, following Scotch.io Tutorial.",
+  "main"         : "server.js",
+  "author"       : "menor",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest"
+  }
+}
