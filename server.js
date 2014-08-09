@@ -2,11 +2,15 @@ var express = require('express');
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
+var bookmarks = require( 'bookmarks.json' );
 var app     = express();
 
-app.get('/scrape', function(req, res){
- var url = 'https://pinboard.in/popular';
+app.get( '/', function( req, res ){
+  res.render( 'index.ejs', { bookmarks: bookmarks });
+});
 
+app.get( '/scrape', function( req, res ) {
+ var url = 'https://pinboard.in/popular';
  request( url, function( error, response, html ) {
 
    if( !error ) {
@@ -24,11 +28,31 @@ app.get('/scrape', function(req, res){
      console.log( bookmarks );
    }
 
-   response.end();
+   res.end();
  });
-
-
 });
+
+var scrapePinboard = function scrapePinboard() {
+  var url = 'https://pinboard.in/popular';
+
+  request( url, function( error, response, html ) {
+
+    if( !error ) {
+      var $ = cheerio.load( html );
+      var title, bookmark;
+      var json = {
+        title: "",
+        url: ""
+      };
+
+      var bookmarks = $( '.bookmark_title' ).map( function() {
+        return this.attribs.href ;
+      }).get();
+
+      return bookmarks;
+    };
+  });
+};
 
 app.listen('8081');
 
