@@ -6,9 +6,11 @@
 
 </head>
 <body>
-  <h1>
-  <% bookmarks %>
-</h1>
+<ul>
+<% for(var i=0; i<bookmarks.length; i++) {%>
+   <li><%= bookmarks[i] %></li>
+<% } %>
+</ul>
 
 </body>
 </html>
