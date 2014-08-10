@@ -32,6 +32,7 @@ app.get( '/scrape', function( req, res ) {
  });
 });
 
+// This should write to a json
 var scrapePinboard = function scrapePinboard() {
   var url = 'https://pinboard.in/popular';
 
