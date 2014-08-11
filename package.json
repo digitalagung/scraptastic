@@ -2,12 +2,13 @@
   "name": "scraptastic",
   "version": "0.0.1",
   "description": "Node web scraper, following Scotch.io Tutorial.",
-  "main": "server.js",
+  "main": "app.js",
   "author": "menor",
   "dependencies": {
     "cheerio": "latest",
     "ejs": "^1.0.0",
     "express": "latest",
+    "express-handlebars": "^1.0.1",
     "request": "latest"
   }
 }

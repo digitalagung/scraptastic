@@ -3,10 +3,16 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var bookmarks = require( './bookmarks.json' );
+var handlebars = require( 'express-handlebars' )
+
 var app     = express();
+app.set('views', __dirname + '/views');
+
+app.engine( 'handlebars', handlebars( { defaultLayout: __dirname + '/views/layouts/main' } ) );
+app.set( 'view engine', 'handlebars' );
 
 app.get( '/', function( req, res ){
-  res.render( 'index.ejs', { bookmarks: bookmarks });
+  res.render( 'index', { bookmarks: bookmarks });
 });
 
 app.get( '/scrape', function( req, res ) {
