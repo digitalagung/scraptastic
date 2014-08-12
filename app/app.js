@@ -12,7 +12,7 @@ app.engine( 'handlebars', handlebars( { defaultLayout: __dirname + '/views/layou
 app.set( 'view engine', 'handlebars' );
 
 app.get( '/', function( req, res ){
-  res.render( 'index', { bookmarks: bookmarks });
+  res.render( 'index', { bookmarks: bookmarks.bookmarks });
 });
 
 app.get( '/scrape', function( req, res ) {
