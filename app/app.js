@@ -3,7 +3,8 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var bookmarks = require( './bookmarks.json' );
-var handlebars = require( 'express-handlebars' )
+var handlebars = require( 'express-handlebars' );
+var read = require( 'node-readability' );
 
 var app     = express();
 app.set('views', __dirname + '/views');
