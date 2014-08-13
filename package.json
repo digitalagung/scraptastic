@@ -9,6 +9,7 @@
     "ejs": "^1.0.0",
     "express": "latest",
     "express-handlebars": "^1.0.1",
+    "node-readability": "^0.3.2",
     "request": "latest"
   }
 }
